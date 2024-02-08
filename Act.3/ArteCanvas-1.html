@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>ArteCanvas-1</title>
+  <style>
+      canvas{    
+          background-color: ghostwhite;
+      }
+  </style>
+	
+	<script>
+      window.onload=function(){
+          var canvas = document.getElementById("micanvas");
+          var context = canvas.getContext("2d");
+		  
+		  context.fillStyle = 'rgba(199,0,57,.5)';
+          context.fillRect(0,0,250,600);
+		  
+		  context.fillStyle = 'rgba(58,180,157,.5)';
+		  context.fillRect(160,0,250,600);
+		  
+		  context.fillStyle = 'rgba(255,195,0,.5)';
+		  context.fillRect(320,0,250,600);
+		  
+		  context.fillStyle = 'rgba(255,87,51,.5)';
+		  context.fillRect(480,0,250,600);
+		  
+		  context.fillStyle = 'rgba(199,0,57,.5)';
+		  context.fillRect(640,0,250,600);
+		  
+		  context.fillStyle = 'rgba(255,255,255,)';
+          context.fillRect(0,0,250,600);
+		  
+      }
+</script>
+
+  </head>
+<body>
+   <canvas id="micanvas" width="800" height="600"></canvas>
+	<h1></h1>
+</body>
+</html>

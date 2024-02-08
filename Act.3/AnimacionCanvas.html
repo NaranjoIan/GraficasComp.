@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>AnimacionCanvas-1</title>
+  <style>
+      canvas{
+          border: 40px solid white;
+          background-color: midnightblue;
+      }
+  </style>
+
+<script>
+
+	var x=Math.random()*800;
+	var y=Math.random()*600;
+	var dx=60;
+    function animate(){
+        requestAnimationFrame(animate);
+		 var canvas = document.getElementById("micanvas");
+         var context = canvas.getContext("2d");
+		context.clearRect(0,0, innerWidth, innerHeight); //codigo para borrar todo el canvas
+        console.log('animando');
+		
+		context.fillStyle = 'cyan';
+        context.fillRect(x,y,50,50);
+		if(x>700||x<0){
+			dx= -dx;
+		}
+		x+=dx;
+    }
+    animate();
+</script>
+  </head>
+<body>
+   <canvas id="micanvas" width="800" height="600"></canvas>
+</body>
+</html>
