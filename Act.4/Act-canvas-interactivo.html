@@ -1,0 +1,82 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <canvas id="canvas" width="800" height="600"></canvas>
+	  
+	<script src="keycode.js"></script> <!--manda llamar archivo js externo--> 
+    <script>
+    window.onload = function () {
+		var canvas = document.getElementById("canvas");
+		var context = canvas.getContext("2d");
+		
+		context.fillStyle = 'rgba(199,0,57,.5)';
+        context.fillRect(0,0,250,600);
+	
+		context.fillStyle = 'rgba(58,180,157,.5)';
+		context.fillRect(160,0,250,600);
+		  
+		context.fillStyle = 'rgba(255,195,0,.5)';
+		context.fillRect(320,0,250,600);
+		  
+		context.fillStyle = 'rgba(255,87,51,.5)';
+		context.fillRect(480,0,250,600);
+		  
+		context.fillStyle = 'rgba(199,0,57,.5)';
+		context.fillRect(640,0,250,600);
+		  
+		context.fillStyle = 'rgba(255,255,255,)';
+		context.fillRect(0,0,250,600);
+		
+		context.font = '40pt Calibri';
+		context.fillStyle = 'White';
+		context.fillText('OPRIME A, S, D, F o G', 260,100);
+		
+		var imagen1 = new Image();
+		var imagen2 = new Image();
+		var imagen3 = new Image();
+		var imagen4 = new Image();
+		var imagen5 = new Image();
+		
+		imagen1.src = "P2.jpg";
+		imagen2.src = "BLACK.png";
+		imagen3.src = "RED.png";
+		imagen4.src = "YELLOW Small.png";
+		imagen5.src = "GREEN.png";
+			
+		function onKeyboardEvent(event){
+			switch(event.keyCode){
+				case keycode.A:
+					context.clearRect(0,0,innerWidth,innerHeight);
+					context.drawImage(imagen1,350,100,400,600);
+				break;
+				case keycode.S:
+					context.clearRect(0,0,innerWidth,innerHeight);
+					context.drawImage(imagen2,350,100,400,600);
+				break;
+				case keycode.D:
+					context.clearRect(0,0,innerWidth,innerHeight);
+					context.drawImage(imagen3,350,100,400,600);
+				break;
+        		case keycode.F:
+          			context.clearRect(0,0,innerWidth,innerHeight);
+					context.drawImage(imagen4,350,100,400,600);
+          		break;
+				case keycode.G:
+          			context.clearRect(0,0,innerWidth,innerHeight);
+					context.drawImage(imagen5,350,100,400,600);
+          		break;
+        	default:
+				console.log(event.keyCode);
+			}
+		}
+		
+		window.addEventListener('keydown', onKeyboardEvent, false);
+    };
+    </script>
+  </body>
+</html>
