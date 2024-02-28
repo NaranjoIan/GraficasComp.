@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LLANTAROTATE</title>
+	  
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	  <canvas id="canvas" width="1200" height="600" style="background-color: crimson;"></canvas>
+	  <aside>HOT WHEELS FIUM</aside>
+	  
+    <script src="utils.js"></script>
+    
+    <script>
+    window.onload = function () {
+		var canvas = document.getElementById('canvas');
+		var context = canvas.getContext("2d");
+        var mouse = utils.captureMouse(canvas);
+        var llanta = new Image();
+		llanta.src = "llanta.png";
+		  
+		var positions = [
+			{x: 200, y: 200},
+			{x: 500, y: 300},
+			{x: 800, y: 400}
+		];
+		
+      (function drawFrame () {
+                window.requestAnimationFrame(drawFrame, canvas);
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                
+                positions.forEach(function(position) {
+                    context.save();
+                    context.translate(position.x, position.y);
+
+                    var dx = mouse.x - position.x,
+                        dy = mouse.y - position.y;
+                    var radianes = Math.atan2(dy, dx); 
+                    context.rotate(radianes); 
+
+                    context.drawImage(llanta, -llanta.width/2, -llanta.height/2);
+                    context.restore();
+                });
+            }());
+        };
+    </script>
+</body>
+</html>
