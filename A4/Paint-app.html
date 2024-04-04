@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Drawing App</title>
+    <link rel="stylesheet" href="style.css">
+	 <style>
+		 body{
+			 text-align: center;
+			 width: 100%;
+		 } 
+		 .container{
+			 margin: 0px, auto;
+			 text-align: center; 
+			 margin: 1000px;
+		 }
+		 button{
+			 width: 100px;
+			 hight: 50px;
+			 margin: 5px;
+		 }
+		 button:hover{
+			 opacity: 0.5;
+		 }
+		 #red{
+			 background-color: red;
+			 font: 16px impact;
+			 color: white;
+		 }
+		 #green{
+			 background-color: green;
+			 font: 16px impact;
+			 color: white;
+		 }
+		 #blue{
+			 background-color: blue;
+			 font: 16px impact;
+			 color: white;
+		 }
+		 #borrar{
+			 width: 300px;
+			 background-color:black;
+			 font: 16px impact;
+			 color: white;
+		 }		 
+		 
+		 .thickness-btn{
+			 width: 50px;
+			 height: 30px;
+			 font-size; 12px;
+			 margin: 5px;
+		 }
+	 </style>
+  </head>
+  <body>
+	  <div id = "container">
+		  <div class = "colores">
+			  <button id="red" type="button" value="#ff0000">red</button>
+			  <button id="green" type="button" value="#00ff00">green</button>	
+			  <button id="blue" type="button" value="#0000ff">blue</button>				  
+		  </div>
+		  <div id="otros">
+			  <button class="thickness-btn" id="thin-btn" type="button">Thin</button>
+ 	          <button class="thickness-btn" id="medium-btn" type="button">Medium</button>
+        	  <button class="thickness-btn" id="thick-btn" type="button">Thick</button>
+			  <button id="borrar" type="button">borrar todo</button>  
+		  </div>
+    <canvas id="canvas" width="400" height="400"></canvas>
+    <aside>Click and draw with the mouse.</aside>
+    </div>
+    <script src="utils.js"></script>
+    <script>
+    window.onload = function () {
+      var canvas = document.getElementById('canvas'),
+		  context = canvas.getContext('2d'),
+          mouse = utils.captureMouse(canvas);
+		  thickness = 1;
+
+      canvas.addEventListener('mousedown', function () {
+        	context.beginPath();
+        	context.moveTo(mouse.x, mouse.y);
+        canvas.addEventListener('mousemove', onMouseMove, false);
+      },	 false);
+
+      canvas.addEventListener('mouseup', function () {
+        canvas.removeEventListener('mousemove', onMouseMove, false);
+      }, false);
+
+      function onMouseMove () {
+        context.lineTo(mouse.x, mouse.y);
+		context.lineWidth = thickness;
+        context.stroke();
+      }
+		
+		var colores = document.getElementsByClassName('colores')[0];
+		colores.addEventListener('click', function(event) {
+			context.strokeStyle = event.target.value;
+		})
+		
+		var clearButton = document.getElementById('borrar');
+		clearButton.addEventListener('click', function(){
+			context.clearRect(0,0,canvas.width, canvas.height);
+		})		
+		
+		var thinBtn = document.getElementById('thin-btn');
+        thinBtn.addEventListener('click', function() {
+          thickness = 1; 
+        })
+
+        var mediumBtn = document.getElementById('medium-btn');
+        mediumBtn.addEventListener('click', function() {
+          thickness = 5; 
+        })
+
+        var thickBtn = document.getElementById('thick-btn');
+        thickBtn.addEventListener('click', function() {
+          thickness = 10; 
+        })
+    };
+    </script>
+  </body>
+</html>
