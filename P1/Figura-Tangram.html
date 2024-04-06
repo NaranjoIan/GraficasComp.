@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Figura Tangram</title>
+	<style> 
+  .container {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    border: 2px solid #000;
+    margin: 50px auto;
+  }
+  
+  .piece {
+    position: absolute;
+    border: 2px solid #000;
+  }
+  
+  .large-triangle{
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid #56A656;	
+  }		
+
+  .small-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 50px solid red;
+  }
+  
+  .large-triangle {
+    width: 0;
+    height: 0;
+    border-left: 100px solid transparent;
+    border-right: 100px solid transparent;
+    border-bottom: 100px solid blue;
+  }
+  
+  .square {
+    width: 100px;
+    height: 100px;
+    background: green;
+  }
+		
+  .large-square {
+    width: 250px;
+    height: 250px;
+    background: green;
+  }
+		
+  
+  .parallelogram {
+    width: 100px;
+    height: 50px;
+    background: orange;
+    transform: skew(45deg);
+  }
+  
+  .small-triangle.right {
+    top: 125px;
+    left: 225px;
+  }
+  
+  .small-triangle.left {
+    top: 50px;
+    left: 100px;
+  }
+  
+  .large-triangle {
+    top: 77px;
+    left: 127px;
+  }
+  
+  .square {
+    top: 23px;
+    left: 275px;
+  }
+		
+  .large-square {
+    top: 175px;
+    left: 150px;
+  }
+  
+  .parallelogram {
+    top: 125px;
+    left: 300px;
+  }
+  
+  .triangle {
+    top: 150px;
+    left: 150px;
+  }
+  
+  .small-triangle.bottom {
+    top: 150px;
+    left: 150px;
+  }
+
+ 
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="piece large-triangle"></div>
+  <div class="piece square"></div>
+  <div class="piece parallelogram"></div>
+  <div class="piece small-triangle right"></div>
+  <div class="piece small-triangle bottom"></div>
+  <div class="piece small-triangle bottom left"></div>
+  <div class="large-triangle"> </div>
+	<div class="piece large-square"></div>
+</div>
+
+</body>
+</html>
